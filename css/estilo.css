@@ -1,0 +1,21 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25/04/2017, 01:42:45
+    Author     : krypton
+*/
+
+.centered {
+    margin: 0 auto !important;
+    float: none !important;
+}
+.container-fluid {
+    background:#DB00FF;
+}
+
+#colors{
+  color: white;
+}
