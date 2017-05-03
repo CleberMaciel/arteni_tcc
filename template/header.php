@@ -1,6 +1,6 @@
 <?php
 //define('BASE_URL', 'http://clebermaciel.online/arteni');
-define('BASE_URL', 'http://localhost/arteni');
+define('BASE_URL', 'http://localhost/arteni_tcc');
 ?>
 <!DOCTYPE html>
 
