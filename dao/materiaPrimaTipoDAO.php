@@ -7,25 +7,26 @@
  */
 
 /**
- * Description of corDAO
+ * Description of materiaPrimaTipoDAO
  *
  * @author krypton
  */
-class corDAO {
+class materiaPrimaTipoDAO {
 
     function montarCombo() {
         global $con;
+        $op = "";
         try {
-            $sql = $con->prepare("SELECT ID_COR, NOME FROM COR");
+            $sql = $con->prepare("SELECT ID_MATERIA_PRIMA_TIPO, NOME FROM MATERIA_PRIMA_TIPO");
             $sql->execute();
             $sql->bind_result($id, $nome);
             while ($sql->fetch()) {
-                $ops .= "<option values='" . $id . "'>" . $nome . "</option>";
-            }//while
-            return $ops;
-        } catch (Exception $e) {
-            echo "Erro: " . $e->getMessage();
-        }//fim trycatch
+                $op .= "<option value ='" . $id . "'>" . $nome . "</option>";
+            }
+            return $op;
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
     }
 
 }

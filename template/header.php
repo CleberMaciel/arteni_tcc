@@ -19,23 +19,25 @@ define('BASE_URL', 'http://localhost/arteni_tcc');
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand"  href="<?php echo BASE_URL; ?>/index.php"><img style="max-width:90px; margin-top: -14px;" src="<?php echo BASE_URL; ?>/img/logo/logo.png"></a>
+                    <a class="navbar-brand"  href="<?php echo BASE_URL; ?>/index.php"><img style="max-width:80px; margin-top: -12px;" src="<?php echo BASE_URL; ?>/img/logo/logo.png"></a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="<?php echo BASE_URL; ?>/index.php" id="colors">Página Principal</a></li>
+                     <li><a href="<?php echo BASE_URL; ?>/view/ver_materia_prima_2.php" id="colors">Galeria de Material</a></li>
                     <!--inicia drop-->
                     <li class="dropdown">
                         <a class="dropdown-toggle" id="colors" data-toggle="dropdown" href="#">Criação<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" role="menu">
                             <li><a href="<?php echo BASE_URL; ?>/view/cad_prod_criacao.php">Criar Produto</a></li>
                             <li><a href="<?php echo BASE_URL; ?>/view/visualizar_prod_criacao.php">Lista de Produtos</a></li>
-
+                            <li class="divider"></li>
+                            <li><a href="<?php echo BASE_URL; ?>/view/cad_materiaPrima.php">Adicionar Matéria-prima</a></li>
+                            <li><a href="<?php echo BASE_URL; ?>/view/ver_materia_prima.php">Ver matéria-prima</a></li>
                         </ul>
                     </li>
                     <!--fecha drop-->
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-
                     <li><a href="#" id="colors" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>

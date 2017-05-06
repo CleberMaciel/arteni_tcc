@@ -17,21 +17,15 @@ class materiaPrima {
     private $id;
     private $nome;
     private $tipo;
-    private $cor;
     private $imagem;
     private $quantidade;
-    private $quantidadeMin;
-    private $observacao;
 
-    function __construct($id, $nome, $tipo, $cor, $imagem, $quantidade, $quantidadeMin, $observacao) {
+    function __construct($id, $nome, $tipo, $imagem, $quantidade) {
         $this->id = $id;
         $this->nome = $nome;
         $this->tipo = $tipo;
-        $this->cor = $cor;
         $this->imagem = $imagem;
         $this->quantidade = $quantidade;
-        $this->quantidadeMin = $quantidadeMin;
-        $this->observacao = $observacao;
     }
 
     function &__set($prop, $val) {
