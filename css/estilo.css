@@ -12,15 +12,44 @@ and open the template in the editor.
     margin: 0 auto !important;
     float: none !important;
 }
-.container-fluid {
+/*navbar navbar-inverse navbar-fixed-top {
     background:#DB00FF;
-}
+}*/
 
+.navbar-header{
+   background-color: #DB00FF; 
+}
+.navbar-inverse{
+   background-color: #DB00FF; 
+}
 #colors{
-  color: white;
+    color: white;
+}
+#colors2{
+    color: black;
 }
 
-.modal-dialog {width:600px;}
+body {
+    padding-top: 80px;
+}
+
+
 .thumbnail {margin-bottom:6px;}
 
 
+.modal-body {padding: 5px}
+
+@media screen and (min-width: 320px){
+    .modal-dialog{
+        position: relative;
+        display: table;
+        overflow-y: auto;    
+        overflow-x: auto;
+        width: auto;
+        min-width: 300px;   
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .modal-dialog {width:600px;}
+}

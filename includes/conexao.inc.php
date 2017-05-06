@@ -1,9 +1,9 @@
 <?php
     // informações relativas a conexão
-    $host = "";
-    $usuario = "";  
-    $senha = ""; // mudar a senha para a do seu banco! :) 
-    $banco = "";    // mudar o nome para o do seu banco! :)
+    $host = "localhost";
+    $usuario = "root";  
+    $senha = "1234"; // mudar a senha para a do seu banco! :) 
+    $banco = "arteni";    // mudar o nome para o do seu banco! :)
     
     // incia a conexão usando o construtor da classe mysqli passando os parâmetros de conexão
     $con = new mysqli($host, $usuario, $senha, $banco);

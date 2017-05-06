@@ -16,32 +16,68 @@ define('BASE_URL', 'http://localhost/arteni_tcc');
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
+        <!--        <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand"  href="<?php echo BASE_URL; ?>/index.php"><img style="max-width:80px; margin-top: -12px;" src="<?php echo BASE_URL; ?>/img/logo/logo.png"></a>
+                        </div>
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="<?php echo BASE_URL; ?>/index.php" id="colors">Página Principal</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>/view/ver_materia_prima_2.php" id="colors">Galeria de Material</a></li>
+                                inicia drop
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" id="colors" data-toggle="dropdown" href="#">Criação<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="<?php echo BASE_URL; ?>/view/cad_prod_criacao.php">Criar Produto</a></li>
+                                        <li><a href="<?php echo BASE_URL; ?>/view/visualizar_prod_criacao.php">Lista de Produtos</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="<?php echo BASE_URL; ?>/view/cad_materiaPrima.php">Adicionar Matéria-prima</a></li>
+                                        <li><a href="<?php echo BASE_URL; ?>/view/ver_materia_prima.php">Ver matéria-prima</a></li>
+                                    </ul>
+                                </li>
+                                fecha drop
+                            </ul>
+                             </div>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#" id="colors" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                            </ul>
+                       
+                    </div>
+                </nav>-->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
                 <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                     <a class="navbar-brand"  href="<?php echo BASE_URL; ?>/index.php"><img style="max-width:80px; margin-top: -12px;" src="<?php echo BASE_URL; ?>/img/logo/logo.png"></a>
                 </div>
-                <ul class="nav navbar-nav">
-                    <li><a href="<?php echo BASE_URL; ?>/index.php" id="colors">Página Principal</a></li>
-                     <li><a href="<?php echo BASE_URL; ?>/view/ver_materia_prima_2.php" id="colors">Galeria de Material</a></li>
-                    <!--inicia drop-->
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" id="colors" data-toggle="dropdown" href="#">Criação<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="<?php echo BASE_URL; ?>/view/cad_prod_criacao.php">Criar Produto</a></li>
-                            <li><a href="<?php echo BASE_URL; ?>/view/visualizar_prod_criacao.php">Lista de Produtos</a></li>
-                            <li class="divider"></li>
-                            <li><a href="<?php echo BASE_URL; ?>/view/cad_materiaPrima.php">Adicionar Matéria-prima</a></li>
-                            <li><a href="<?php echo BASE_URL; ?>/view/ver_materia_prima.php">Ver matéria-prima</a></li>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="<?php echo BASE_URL; ?>/index.php"id="colors">Pagina Inicial</a></li>
+                        <li><a href="<?php echo BASE_URL; ?>/view/ver_materia_prima_2.php" id="colors">Galeria de Material</a></li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" id="colors" data-toggle="dropdown" href="#">Criação<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="<?php echo BASE_URL; ?>/view/cad_prod_criacao.php" id="colors2">Criar Produto</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>/view/visualizar_prod_criacao.php"id="colors2">Lista de Produtos</a></li>
+                                <li class="divider"></li>
+                                <li><a href="<?php echo BASE_URL; ?>/view/cad_materiaPrima.php"id="colors2">Adicionar Matéria-prima</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>/view/ver_materia_prima.php"id="colors2">Ver matéria-prima</a></li>
+                            </ul>
+                        </li>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#" id="colors" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                         </ul>
-                    </li>
-                    <!--fecha drop-->
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" id="colors" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+
+                    </ul>
+                </div><!--/.nav-collapse -->
             </div>
-        </nav>
+        </div>
     </header>
     <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog">
