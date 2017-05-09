@@ -1,6 +1,6 @@
 <?php
+session_start();
 include "../template/header.php";
-
 
 include "../includes/conexao.inc.php";
 include '../dao/produtoCriacaoDAO.php';

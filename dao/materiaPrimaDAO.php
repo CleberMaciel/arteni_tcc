@@ -88,9 +88,9 @@ class materiaPrimaDAO {
             $sql->bind_result($id, $nome, $imagem, $qtd_total);
 
             while ($sql->fetch()) {
-                $dados .= "<div class='col-lg-2 col-sm-4 col col-xs-6' ><a title='" . $nome . "' href='#'><img class='thumbnail img-responsive' src='../imagens/" . $imagem . "'></a></div>";
+                $dados .= "<div class='col-lg-2 col-sm-4 col col-xs-6' ><a title='" . $nome . "' href='#'><img class='thumbnail img-responsive' src='../imagens/" . $imagem . "'></a>$nome</div>";
 
-               // echo $dados;
+                // echo $dados;
             }
 
             echo $dados;
