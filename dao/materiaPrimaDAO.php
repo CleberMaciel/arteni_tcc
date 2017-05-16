@@ -18,8 +18,13 @@ class materiaPrimaDAO {
         try {
             $sql = $con->prepare("INSERT INTO MATERIA_PRIMA(NOME, IMAGEM, QTD_TOTAL, MATERIA_PRIMA_TIPO_ID_MATERIA_PRIMA_TIPO) VALUES (?,?,?,?)");
             $sql->bind_param('ssii', $materia->nome, $materia->imagem, $materia->quantidade, $materia->tipo);
-            if ($sql->execute())
-                echo "cadastrou";
+            if ($sql->execute()) {
+                echo '<script>alert("Matéria-Prima Salva com sucesso!");</script>';
+                header("Refresh: 0; ../view/cad_materiaPrima.php");
+            } else {
+                echo '<script>alert("Não foi possível cadastrar!");</script>';
+                header("Refresh: 0; ../view/cad_materiaPrima.php");
+            }
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
@@ -43,7 +48,7 @@ class materiaPrimaDAO {
 
     function AtualizarQuantidade($quantidade, $id) {
         global $con;
-        //aqui vai variavel
+//aqui vai variavel
         try {
             $sql = $con->prepare("UPDATE MATERIA_PRIMA SET QTD_TOTAL = QTD_TOTAL - ? WHERE ID_MATERIA_PRIMA = ?");
             $sql->bind_param("ii", $quantidade, $id);
@@ -83,14 +88,14 @@ class materiaPrimaDAO {
         global $con;
 
         try {
-            $sql = $con->prepare("SELECT ID_MATERIA_PRIMA, NOME, IMAGEM, QTD_TOTAL FROM MATERIA_PRIMA");
+            $sql = $con->prepare("SELECT ID_MATERIA_PRIMA, NOME, IMAGEM, QTD_TOTAL FROM MATERIA_PRIMA ORDER BY NOME ASC");
             $sql->execute();
             $sql->bind_result($id, $nome, $imagem, $qtd_total);
 
             while ($sql->fetch()) {
                 $dados .= "<div class='col-lg-2 col-sm-4 col col-xs-6' ><a title='" . $nome . "' href='#'><img class='thumbnail img-responsive' src='../imagens/" . $imagem . "'></a>$nome</div>";
 
-                // echo $dados;
+// echo $dados;
             }
 
             echo $dados;

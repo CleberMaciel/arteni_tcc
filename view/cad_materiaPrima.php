@@ -1,7 +1,10 @@
 <?php include "../template/header.php"; ?>
 <?php if ($_SESSION["tipo_usuario"] == 1) { ?>
     <div class="container">
+        <?php 
+        echo $result; ?>  
         <div class="col-sm-4">
+
             <form name="cadastroMateriaPrima" action="../action/salvarMateriaPrima.php"method="POST" enctype="multipart/form-data">
                 <input type="text" name="nome" id="nome" placeholder="Nome da matéria-prima" required="TRUE" class="form-control"/><br/>
                 <input type="file" name="imagem" id="imagem" class="form-control form-control-file"/>

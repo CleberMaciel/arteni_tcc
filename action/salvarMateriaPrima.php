@@ -3,6 +3,7 @@
 include '../dao/materiaPrimaDAO.php';
 include '../includes/conexao.inc.php';
 include '../class/materiaPrima.class.php';
+include_once '../wideimage/lib/WideImage.php';
 
 $nome = $_POST['nome'];
 $imagem = $_FILES["imagem"];
@@ -12,8 +13,10 @@ $tipo = $_POST["materiaPrimaTipo"];
 preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $imagem["name"], $ext);
 
 $nome_imagem = md5(uniqid(time())) . "." . $ext[1];
-$caminho_imagem = "../imagens/" . $nome_imagem;
-move_uploaded_file($imagem["tmp_name"], $caminho_imagem);
+$caminho_imagem = "../imagens/";
+
+
+WideImage::loadFromUpload('imagem')->resize(null, null, null, 50)->saveToFile($caminho_imagem . $nome_imagem, 20);
 
 $mpDAO = new materiaPrimaDAO();
 $mp = new materiaPrima("", $nome, $tipo, $nome_imagem, $quantidade);
