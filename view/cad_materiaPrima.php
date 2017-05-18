@@ -1,8 +1,6 @@
 <?php include "../template/header.php"; ?>
 <?php if ($_SESSION["tipo_usuario"] == 1) { ?>
     <div class="container">
-        <?php 
-        echo $result; ?>  
         <div class="col-sm-4">
 
             <form name="cadastroMateriaPrima" action="../action/salvarMateriaPrima.php"method="POST" enctype="multipart/form-data">
@@ -21,6 +19,19 @@
                 </select>
 
                 </br>
+
+                <select name = "estampa" id = "estampa" class = "form-control" required>
+                    <option disabled selected = ""> Selecione a estampa</option>
+                    <?php
+                    include "../includes/conexao.inc.php";
+                    include "../dao/estampaDAO.php";
+                    $estampa = new estampaDAO();
+                    echo $estampa->montarCombo();
+                    ?>
+                </select>
+
+                </br>
+
                 <input type="submit" name="acao" value="Salvar" class="btn btn-success"/>
             </form>
         </div>

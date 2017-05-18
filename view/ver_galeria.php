@@ -4,10 +4,13 @@ include '../includes/conexao.inc.php';
 include '../dao/materiaPrimaDAO.php';
 $acoes = new materiaPrimaDAO();
 ?>
+
 <div class="container">
+
     <div class="row">
 
         <?php echo $acoes->exibir_thumb(); ?>
+
 
 
     </div>

@@ -14,6 +14,8 @@ define('BASE_URL', 'http://localhost/arteni_tcc');
     <link href="<?php echo BASE_URL; ?>/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo BASE_URL; ?>/css/estilo.css" rel="stylesheet">
     <link href="<?php echo BASE_URL; ?>/css/login.css" rel="stylesheet">
+    <link href="<?php echo BASE_URL; ?>/css/dataTables.bootstrap.min.css"rel="stylesheet"/> 
+    <link href="<?php echo BASE_URL; ?>/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -36,10 +38,14 @@ define('BASE_URL', 'http://localhost/arteni_tcc');
                                 <a class="dropdown-toggle" id="colors" data-toggle="dropdown" href="#">Criação<span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="<?php echo BASE_URL; ?>/view/cad_prod_criacao.php" id="colors2">Criar Produto</a></li>
-                                    <li><a href="<?php echo BASE_URL; ?>/view/visualizar_prod_criacao.php"id="colors2">Lista de Produtos</a></li>
+                                    <li><a href="<?php echo BASE_URL; ?>/view/visualizar_prod_criacao.php"id="colors2">Lista de produtos</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="<?php echo BASE_URL; ?>/view/cad_materiaPrima.php"id="colors2">Adicionar Matéria-prima</a></li>
-                                    <li><a href="<?php echo BASE_URL; ?>/view/ver_materia_prima.php"id="colors2">Ver matéria-prima</a></li>
+                                    <li><a href="<?php echo BASE_URL; ?>/view/cad_materiaPrima.php"id="colors2">Adicionar matéria-prima</a></li>
+                                    <li><a href="<?php echo BASE_URL; ?>/view/ver_materia_prima.php"id="colors2">Listar matéria-prima</a></li>
+                                    <li class="divider"></li>
+
+                                    <li><a href="<?php echo BASE_URL; ?>/view/cad_estampa.php"id="colors2">Cadastrar estampa</a></li>
+
                                 </ul>
                             </li>
                             <ul class="nav navbar-nav navbar-right">
@@ -64,7 +70,7 @@ define('BASE_URL', 'http://localhost/arteni_tcc');
                         <input type="password" name="pass" id="pass" placeholder="Senha">
                         <input type="submit" name="acoes" class="login loginmodal-submit" value="Entrar">
                     </form>
-                    <?php }
+                <?php }
                 ?>
             </div>
         </div>

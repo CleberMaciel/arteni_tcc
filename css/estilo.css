@@ -17,10 +17,10 @@ and open the template in the editor.
 }*/
 
 .navbar-header{
-   background-color: #DB00FF; 
+    background-color: #DB00FF; 
 }
 .navbar-inverse{
-   background-color: #DB00FF; 
+    background-color: #DB00FF; 
 }
 #colors{
     color: white;
@@ -52,5 +52,7 @@ body {
 
 @media screen and (min-width: 1024px){
     .modal-dialog {width:300px;}
-    
+    .modal-content{width: 440px;}
+
+
 }

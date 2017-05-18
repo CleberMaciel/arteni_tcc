@@ -7,27 +7,18 @@
  */
 
 /**
- * Description of materiaPrima
+ * Description of estampa
  *
  * @author krypton
  */
-class materiaPrima {
+class estampa {
 
-    //put your code here
     private $id;
     private $nome;
-    private $tipo;
-    private $imagem;
-    private $quantidade;
-    private $estampa;
 
-    function __construct($id, $nome, $tipo, $imagem, $quantidade, $estampa) {
+    function __construct($id, $nome) {
         $this->id = $id;
         $this->nome = $nome;
-        $this->tipo = $tipo;
-        $this->imagem = $imagem;
-        $this->quantidade = $quantidade;
-        $this->estampa = $estampa;
     }
 
     function &__set($prop, $val) {
