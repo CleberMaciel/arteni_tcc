@@ -8,11 +8,7 @@ $acoes = new materiaPrimaDAO();
 <div class="container">
 
     <div class="row">
-
         <?php echo $acoes->exibir_thumb(); ?>
-
-
-
     </div>
 </div>
 

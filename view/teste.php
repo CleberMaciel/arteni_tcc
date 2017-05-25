@@ -1,51 +1,40 @@
-<?php
-$connect = mysqli_connect("localhost", "root", "1234", "arteni");
-$query = "SELECT NOME, QTD_TOTAL FROM MATERIA_PRIMA";
-$result = mysqli_query($connect, $query);
-?>  
-<!DOCTYPE html>  
-<html>  
-    <head>  
-        <title>Webslesson Tutorial | Datatables Jquery Plugin with Php MySql and Bootstrap</title>  
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-        <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>  
-        <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>            
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />  
-    </head>  
-    <body>  
-        <br /><br />  
-        <div class="container">  
-            <h3 align="center">Datatables Jquery Plugin with Php MySql and Bootstrap</h3>  
-            <br />  
-            <div class="table-responsive">  
-                <table id="employee_data" class="table table-striped table-bordered">  
-                    <thead>  
-                        <tr>  
-                            <td>Name</td>  
-                            <td>Address</td>  
+<?php include "../template/header.php"; ?>
+<div class="container">
+    <div class="row">
 
-                        </tr>  
-                    </thead>  
-                    <?php
-                    while ($row = mysqli_fetch_array($result)) {
-                        echo '  
-                               <tr>  
-                                    <td>' . $row["NOME"] . '</td>  
-                                    
-                                    <td>' . $row["QTD_TOTAL"] . '</td>  
-                      
-                               </tr>  
-                               ';
-                    }
-                    ?>  
-                </table>  
-            </div>  
-        </div>  
-    </body>  
-</html>  
-<script>
-    $(document).ready(function () {
-        $('#employee_data').DataTable();
-    });
-</script>  
+
+        <!-- Wrapper for slides -->
+
+        <div class="col-sm-3">
+            <div class="col-item">
+                <div class="photo">
+                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                </div>
+                <div class="info">
+                    <div class="row">
+                        <div class="price col-md-6">
+                            <h5>
+                                Nome produto</h5>
+                            <h5 class="price-text-color">
+                                R$199.99</h5>
+                        </div>
+                        <div class="rating hidden-sm col-md-6">
+                            <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                            </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                            </i><i class="fa fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="separator clear-left">
+                        <p class="btn-add">
+                            <i class="fa fa-shopping-cart"></i><a href="#" class="hidden-sm">Add ao carrinho</a></p>
+                        <p class="btn-details">
+                            <i class="fa fa-list"></i><a href="#" class="hidden-sm">Mais detalhes</a></p>
+                    </div>
+                    <div class="clearfix">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <?php include "../template/footer.php"; ?>

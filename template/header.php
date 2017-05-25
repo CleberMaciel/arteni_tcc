@@ -16,6 +16,7 @@ define('BASE_URL', 'http://localhost/arteni_tcc');
     <link href="<?php echo BASE_URL; ?>/css/login.css" rel="stylesheet">
     <link href="<?php echo BASE_URL; ?>/css/dataTables.bootstrap.min.css"rel="stylesheet"/> 
     <link href="<?php echo BASE_URL; ?>/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="<?php echo BASE_URL; ?>/css/sweetalert.css" rel="stylesheet">
 </head>
 <body>
     <header>

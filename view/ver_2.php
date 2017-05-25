@@ -1,14 +1,22 @@
 <?php
-session_start();
-include "../template/header.php";
 
-include "../includes/conexao.inc.php";
-include '../dao/produtoCriacaoDAO.php';
-$acoes = new produtoCriacaoDAO();
-?>
-<table class="table table-hover">
-    <?php echo $acoes->mostrar(); ?>
-</table>
-<?php
-include "../template/footer.php";
+$a = "select * from sumario order by titulo asc";
+$b = mysql_query($a);
+$cat = explode(", ", $categoria);
+
+while ($i = mysql_fetch_array($b)) {
+    $titulo = $i['titulo'];
+    $id = $i['id'];
+    $x = 0;
+    while ($x < count($i)) {
+        if ($cat[$x] == $titulo) {
+            $y = "checked";
+            break;
+        } else {
+            $y = " ";
+        }
+        $x++;
+    }
+    echo "<input name=\"categoria[]\" type=\"checkbox\" value=\"$titulo\" $y> $titulo<br>";
+}
 ?>

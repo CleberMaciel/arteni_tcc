@@ -15,27 +15,32 @@ class estampaDAO {
             $sql = $con->prepare("INSERT INTO ESTAMPA(NOME) VALUES (?)");
             $sql->bind_param('s', $estampa->nome);
             if ($sql->execute()) {
-                echo '<script>alert("Estampa salva com sucesso!");</script>';
-                header("Refresh: 0; ../view/cad_estampa.php");
+
+                //header("Location:../view/cad_estampa.php");
+//header("Location:../view/cad_estampa.php");
             } else {
-                echo '<script>alert("Não foi possível cadastrar!");</script>';
-                header("Refresh: 0; ../view/cad_estampa.php");
+                $result = '<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later</div>';
             }
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
     }
 
-    function montarCombo() {
+    function montarCombo($variavel) {
         global $con;
-        $ops = "";
+
         try {
             $sql = $con->prepare("SELECT ID_ESTAMPA, NOME FROM ESTAMPA");
             $sql->execute();
             $sql->bind_result($id, $nome);
             while ($sql->fetch()) {
-                $ops .= "<option value='" . $id . "'>" . $nome . "</option>";
-            }//while
+                if ($variavel == $id) {
+                    $ops .= "<option value ='" . $id . "'selected='selected' >" . $nome . "</option>";
+                } else {
+
+                    $ops .= "<option value ='" . $id . " '>" . $nome . "</option>";
+                }
+            }
             return $ops;
         } catch (Exception $e) {
             echo "Erro: " . $e->getMessage();

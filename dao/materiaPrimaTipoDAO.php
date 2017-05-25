@@ -13,15 +13,36 @@
  */
 class materiaPrimaTipoDAO {
 
-    function montarCombo() {
+//    function montarCombo() {
+//        global $con;
+//        $op = "";
+//        try {
+//            $sql = $con->prepare("SELECT ID_MATERIA_PRIMA_TIPO, NOME FROM MATERIA_PRIMA_TIPO");
+//            $sql->execute();
+//            $sql->bind_result($id, $nome);
+//            while ($sql->fetch()) {
+//                $op .= "<option value ='" . $id . "' selected=selected>" . $nome . "</option>";
+//            }
+//            return $op;
+//        } catch (Exception $exc) {
+//            echo $exc->getTraceAsString();
+//        }
+//    }
+
+    function montarCombo($variavel) {
         global $con;
-        $op = "";
+
         try {
             $sql = $con->prepare("SELECT ID_MATERIA_PRIMA_TIPO, NOME FROM MATERIA_PRIMA_TIPO");
             $sql->execute();
             $sql->bind_result($id, $nome);
             while ($sql->fetch()) {
-                $op .= "<option value ='" . $id . "'>" . $nome . "</option>";
+                if ($variavel == $id) {
+                    $op .= "<option value ='" . $id . "'selected='selected' >" . $nome . "</option>";
+                } else {
+
+                    $op .= "<option value ='" . $id . " '>" . $nome . "</option>";
+                }
             }
             return $op;
         } catch (Exception $exc) {
