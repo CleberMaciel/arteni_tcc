@@ -19,8 +19,9 @@ class produtoCriacaoDAO {
 
             $sql = $con->prepare("INSERT INTO PRODUTO_CRIACAO(NOME, LARGURA, ALTURA, PROFUNDIDADE, MATERIA_PRIMA_ID_MATERIA_PRIMA, QTD_USADA, CODIGO) VALUES (?,?,?,?,?,?,?)");
             $sql->bind_param('siiiiis', $produto->nome, $produto->largura, $produto->altura, $produto->profundidade, $produto->materiaPrima, $produto->qtd_usada, $produto->codigo);
-            if ($sql->execute())
-                echo "foi";
+            if ($sql->execute()) {
+                
+            }
         } catch (Exception $e) {
             echo "ERRO: " . $e->getMessage();
             echo "ERRO2: " . $sql->error;
@@ -53,8 +54,8 @@ class produtoCriacaoDAO {
                         . "<td>" . $largura . "</td>"
                         . "<td>" . $altura . "</td>"
                         . "<td>" . $profundidade . "</td>"
-                        . "<td>" . "<a href=../action/verMateriaQuantidade.php?codigo=" . $codigo . ">Visualizar</a></td>"
-                        . "<td>" . "<a href=cad_produto_venda.php?codigo=" . $codigo . ">Colocar a Venda</a></td>"
+                        . "<td>" . "<a class='btn btn-success' href=../action/verMateriaQuantidade.php?codigo=" . $codigo . ">Visualizar</a></td>"
+                        . "<td>" . "<a class='btn btn-primary' href=cad_produto_venda.php?codigo=" . $codigo . "&ID_PRODUTO_CRIACAO=$id>Colocar a Venda</a></td>"
                         . "</td>"
                         . "</tr>";
             }

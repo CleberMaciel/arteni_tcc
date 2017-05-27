@@ -15,9 +15,7 @@ class estampaDAO {
             $sql = $con->prepare("INSERT INTO ESTAMPA(NOME) VALUES (?)");
             $sql->bind_param('s', $estampa->nome);
             if ($sql->execute()) {
-
-                //header("Location:../view/cad_estampa.php");
-//header("Location:../view/cad_estampa.php");
+                
             } else {
                 $result = '<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later</div>';
             }

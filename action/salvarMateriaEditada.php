@@ -22,6 +22,6 @@ $caminho_imagem = "../imagens/";
 WideImage::loadFromUpload('imagem')->saveToFile($caminho_imagem . $nome_imagem, 5);
 
 $mpDAO = new materiaPrimaDAO();
-$mp = new materiaPrima($id, $nome, $tipo, $nome_imagem, $quantidade, $estampa);
+$mp = new materiaPrima("", $nome, $tipo, $nome_imagem, $quantidade, $estampa);
 $mpDAO->atualizarMateria($mp);
 var_dump($id);

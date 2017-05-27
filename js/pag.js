@@ -13,7 +13,7 @@ jQuery(document).ready(function () {
     jQuery("img.lazy").lazy({
         effect: "fadeIn",
         effectTime: 1000, //In milliseconds
-        threshold: 50
+        threshold: 0.3
         
     });
 });

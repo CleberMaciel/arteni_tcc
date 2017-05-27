@@ -22,8 +22,5 @@ if ($_SESSION["tipo_usuario"] == 1) {
     echo "area restrita";
 }
 ?>
-
-
-
 <?php include "../template/footer.php"; ?>
 

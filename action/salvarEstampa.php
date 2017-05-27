@@ -49,21 +49,5 @@ if (!empty($_POST)) {
         <?php
 
     }
-} else {
-    ?>
-    <script>
-        $(document).ready(function () {
-            swal({
-                title: "Erro ao cadastradar",
-                text: "Clique em Ok para voltar",
-                type: "error"
-            },
-                    function () {
-                        window.location.href = '../view/cad_estampa.php';
-                    });
-        });
-    </script>
-    <?php
-
 }
     

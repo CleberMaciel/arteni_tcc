@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 // informações relativas a conexão
 $host = "localhost";

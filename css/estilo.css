@@ -8,6 +8,13 @@ and open the template in the editor.
     Author     : krypton
 */
 
+element.style {
+    max-height: 350px;
+    overflow-y: auto;
+    min-height: 0px;
+}
+
+
 .centered {
     margin: 0 auto !important;
     float: none !important;
@@ -57,7 +64,7 @@ body {
 
 }
 
-
+/*ITEM VENDA*/
 .col-item
 {
     border: 1px solid #E1E1E1;

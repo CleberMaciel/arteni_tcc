@@ -14,7 +14,7 @@ $dados = $mDAO->buscarDados($id);
 <div class="container">
     <div class="col-sm-4">
 
-        <form name="cadastroMateriaPrima" action="../action/editarMateriaPrima.php"method="POST" enctype="multipart/form-data">
+        <form name="cadastroMateriaPrima" action="../action/salvarMateriaEditada.php"method="POST" enctype="multipart/form-data">
             <input type="text" name="nome" id="nome" placeholder="Nome da matéria-prima"  value="<?php echo $dados->NOME; ?>"required="TRUE" class="form-control"/><br/>
             <input type="file" name="imagem" id="imagem" class="form-control form-control-file"/>
             <p class="help-block">Selecione uma imagem para a matéria-prima se houver.</p>

@@ -19,11 +19,7 @@ class materiaPrimaDAO {
             $sql = $con->prepare("INSERT INTO MATERIA_PRIMA(NOME, IMAGEM, QTD_TOTAL, MATERIA_PRIMA_TIPO_ID_MATERIA_PRIMA_TIPO, ESTAMPA_ID_ESTAMPA) VALUES (?,?,?,?,?)");
             $sql->bind_param('ssiii', $materia->nome, $materia->imagem, $materia->quantidade, $materia->tipo, $materia->estampa);
             if ($sql->execute()) {
-                echo '<script>alert("Matéria-Prima Salva com sucesso!");</script>';
-                header("Refresh: 0; ../view/cad_materiaPrima.php");
-            } else {
-                echo '<script>alert("Não foi possível cadastrar!");</script>';
-                header("Refresh: 0; ../view/cad_materiaPrima.php");
+                
             }
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
@@ -95,7 +91,7 @@ class materiaPrimaDAO {
                         . "<td><img src='../imagens/" . $row["IMAGEM"] . "'width='120' height='80'/>  </td>"
                         . "<td>" . $row["NOME"] . "  </td>"
                         . "<td>" . $row["QTD_TOTAL"] . "  </td>"
-                        . "<td>" . "<a href='../view/editarMateria.php?ID_MATERIA_PRIMA=" . $row["ID_MATERIA_PRIMA"] . "'>Editar </a></td>"
+                        . "<td>" . "<a class='btn btn-primary' href='../view/editarMateria.php?ID_MATERIA_PRIMA=" . $row["ID_MATERIA_PRIMA"] . "' >Editar </a></td>"
                         . "</tr>";
             }
             $dados .= "";
@@ -108,11 +104,12 @@ class materiaPrimaDAO {
 //refatorado
     function exibir_thumb() {
         global $con;
+        $dados ="";
         try {
             $sql = ("SELECT ID_MATERIA_PRIMA, NOME, IMAGEM, QTD_TOTAL FROM MATERIA_PRIMA ORDER BY NOME ASC");
             $result = mysqli_query($con, $sql);
             while ($row = mysqli_fetch_array($result)) {
-                $dados .= "<div class='col-lg-2 col-sm-4 col col-xs-6' ><a title='" . $row["NOME"] . "' href='#'><img class='thumbnail img-responsive lazy'  data-src='../imagens/" . $row["IMAGEM"] . "'></a>" . $row["NOME"] . "</div>";
+                $dados .= "<div class='col-lg-2 col-sm-4 col col-xs-6' ><a title='" . $row["NOME"] . "' ><img class='thumbnail img-responsive lazy'  data-src='../imagens/" . $row["IMAGEM"] . "'></a>" . $row["NOME"] . "</div>";
             }
             echo $dados;
         } catch (Exception $ex) {

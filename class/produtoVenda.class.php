@@ -15,15 +15,13 @@ class produtoVenda {
 
     //put your code here
     private $id;
-    private $nome;
     private $imagem;
     private $valor;
     private $descricao;
     private $prod_criacao;
 
-    function __construct($id, $nome, $imagem, $valor, $descricao, $prod_criacao) {
+    function __construct($id, $imagem, $valor, $descricao, $prod_criacao) {
         $this->id = $id;
-        $this->nome = $nome;
         $this->imagem = $imagem;
         $this->valor = $valor;
         $this->descricao = $descricao;

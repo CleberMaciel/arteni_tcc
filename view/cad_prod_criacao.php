@@ -4,17 +4,43 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<?php include "../template/header.php";
+<?php
+include "../template/header.php";
 if ($_SESSION["tipo_usuario"] == 1) {
     ?>
     <div class="container">
         <div class="col-sm-4">
-            <form name="cadastroProdutoCriacao" action="../action/registrarProdutoCriacao.php"method="POST">
-                <input type="text" name="codigo" id="codigo" placeholder="Codigo do produto" required="TRUE" class="form-control"/><br/>
-                <input type="text" name="nome" id="nome" placeholder="Nome do Produto" required="TRUE" class="form-control"/><br/>
-                <input type="number" name="largura" id="largura" placeholder="Largura" class="form-control"/><br/>
-                <input type="number" name="altura" id="altura" placeholder="Altura" class="form-control"/><br/>
-                <input type="number" name="profundidade" id="profundidade" placeholder="Profundidade" class="form-control"/><br/>
+            <form name="cadastroProdutoCriacao" action="../action/registrarProdutoCriacao.php"method="POST" data-toggle="validator">
+                <div class="form-group">
+                    <label class="control-label">Código do produto</label>
+                    <input type="text" name="codigo" id="codigo" placeholder="Codigo do produto" required="TRUE" class="form-control" data-minlength="4" pattern="^[A-z0-9]{4,}$" data-match-errors="texto curto"/><br/>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nome do produto</label>
+                    <input type="text" name="nome" id="nome" placeholder="Nome do Produto" required="TRUE" class="form-control"data-minlength="4" pattern="^[A-z0-9]{4,}$" data-match-errors="texto curto"/><br/>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Largura</label>
+                    <input type="number" name="largura" id="largura" placeholder="Largura" class="form-control"data-minlength="1" pattern="^[0-9]{1,}$" data-match-errors="texto curto"/><br/>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Altura</label>
+                    <input type="number" name="altura" id="altura" placeholder="Altura" class="form-control"data-minlength="1" pattern="^[0-9]{1,}$" data-match-errors="texto curto"/><br/>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Profundidade</label>
+                    <input type="number" name="profundidade" id="profundidade" placeholder="Profundidade" class="form-control"data-minlength="1" pattern="^[0-9]{1,}$" data-match-errors="texto curto"/><br/>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
                 <br>
 
                 <a class="btn btn-primary" href="javascript:void(0)" id="addSelect">
@@ -50,7 +76,9 @@ $materiaPrima = new materiaPrimaDAO();
 echo $materiaPrima->montarCombo();
 ?>" +
                     '</select>' +
-                    '<input type="number" name="quantidade[]" id="quantidade" placeholder="quantidade" class="form-control"/>' +
+                    ' <div class="form-group">' +
+                    '<input type="number" name="quantidade[]" id="quantidade" placeholder="quantidade" class="form-control" pattern="^[0-9]{1,}$"/>' +
+                    '</div>' +
                     '<a class="btn btn-danger" href="javascript:void(0)" id="remSelect">' +
                     ' Remover campo' +
                     ' </a>  ' +

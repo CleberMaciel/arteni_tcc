@@ -7,11 +7,18 @@ and open the template in the editor.
 <?php include "template/header.php"; ?>
 
 <div class="container">
-    <div class="row">
+<!--    <div class="row">
         <div class="col-md-8 centered">
             <img src="img/logo/logo.png" class="img-responsive" alt="...">
         </div>
-    </div>
+    </div>-->
+<?php
+    include './includes/conexao.inc.php';
+    include './dao/produtoVendaDAO.php';
+    
+    $pvDAO = new produtoVendaDAO();
+    echo $pvDAO->mostrarItens();
+?>
 
 </div>
 
