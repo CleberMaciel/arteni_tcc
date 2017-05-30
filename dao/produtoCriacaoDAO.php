@@ -45,8 +45,9 @@ class produtoCriacaoDAO {
                     . "<th>Largura(cm)</th>"
                     . "<th>Altura(cm)</th>"
                     . "<th>Profundidade(cm)</th>"
-                    . "<th>Ver materia-prima</th>"
                     . "<th>Vender</th>"
+                    . "<th>Ver materia-prima</th>"
+                    . "<th>Funções</th>"
                     . "</tr>";
             while ($sql->fetch()) {
                 $dados .= "<tr>"
@@ -54,8 +55,9 @@ class produtoCriacaoDAO {
                         . "<td>" . $largura . "</td>"
                         . "<td>" . $altura . "</td>"
                         . "<td>" . $profundidade . "</td>"
-                        . "<td>" . "<a class='btn btn-success' href=../action/verMateriaQuantidade.php?codigo=" . $codigo . ">Visualizar</a></td>"
                         . "<td>" . "<a class='btn btn-primary' href=cad_produto_venda.php?codigo=" . $codigo . "&ID_PRODUTO_CRIACAO=$id>Colocar a Venda</a></td>"
+                        . "<td>" . "<a class='btn btn-success' href=../action/verMateriaQuantidade.php?codigo=" . $codigo . ">Visualizar</a></td>"
+                        . "<td>" . "<a class='btn btn-success' href=editarProdutoCriacao.php?codigo=" . $codigo . ">Editar</a></td>"
                         . "</td>"
                         . "</tr>";
             }
@@ -100,7 +102,7 @@ class produtoCriacaoDAO {
     function buscarDados($id) {
         global $con;
         try {
-            $sql = "SELECT PRODUTO_CRIACAO.NOME AS PROD_NOME, PRODUTO_CRIACAO.LARGURA AS LARGURA, PRODUTO_CRIACAO.ALTURA AS ALTURA, PRODUTO_CRIACAO.PROFUNDIDADE AS PROFUNDIDADE ,PRODUTO_CRIACAO.QTD_USADA AS QUANTIDADE_USADA, MATERIA_PRIMA.NOME AS MATERIA_NOME, MATERIA_PRIMA_TIPO.NOME AS MATERIA_TIPO_NOME, ESTAMPA.NOME AS ESTAMPA_NOME FROM PRODUTO_CRIACAO JOIN MATERIA_PRIMA ON PRODUTO_CRIACAO.MATERIA_PRIMA_ID_MATERIA_PRIMA = MATERIA_PRIMA.ID_MATERIA_PRIMA JOIN ESTAMPA ON ESTAMPA.ID_ESTAMPA = MATERIA_PRIMA.ESTAMPA_ID_ESTAMPA JOIN MATERIA_PRIMA_TIPO ON MATERIA_PRIMA_TIPO.ID_MATERIA_PRIMA_TIPO = MATERIA_PRIMA.MATERIA_PRIMA_TIPO_ID_MATERIA_PRIMA_TIPO WHERE PRODUTO_CRIACAO.CODIGO = '$id'";
+            $sql = "SELECT PRODUTO_CRIACAO.NOME AS PROD_NOME, PRODUTO_CRIACAO.LARGURA AS LARGURA, PRODUTO_CRIACAO.ALTURA AS ALTURA, PRODUTO_CRIACAO.PROFUNDIDADE AS PROFUNDIDADE ,PRODUTO_CRIACAO.QTD_USADA AS QUANTIDADE_USADA, CODIGO, MATERIA_PRIMA.NOME AS MATERIA_NOME, MATERIA_PRIMA_TIPO.NOME AS MATERIA_TIPO_NOME, ESTAMPA.NOME AS ESTAMPA_NOME FROM PRODUTO_CRIACAO JOIN MATERIA_PRIMA ON PRODUTO_CRIACAO.MATERIA_PRIMA_ID_MATERIA_PRIMA = MATERIA_PRIMA.ID_MATERIA_PRIMA JOIN ESTAMPA ON ESTAMPA.ID_ESTAMPA = MATERIA_PRIMA.ESTAMPA_ID_ESTAMPA JOIN MATERIA_PRIMA_TIPO ON MATERIA_PRIMA_TIPO.ID_MATERIA_PRIMA_TIPO = MATERIA_PRIMA.MATERIA_PRIMA_TIPO_ID_MATERIA_PRIMA_TIPO WHERE PRODUTO_CRIACAO.CODIGO = '$id'";
             if ($resultado = mysqli_query($con, $sql)) {
                 while ($objeto = mysqli_fetch_object($resultado)) {
                     return $objeto;
@@ -116,7 +118,7 @@ class produtoCriacaoDAO {
         global $con;
         try {
 
-            $sql = $con->prepare("SELECT PRODUTO_CRIACAO.QTD_USADA AS QUANTIDADE_USADA, MATERIA_PRIMA.NOME AS MATERIA_NOME, MATERIA_PRIMA_TIPO.NOME AS MATERIA_TIPO_NOME, ESTAMPA.NOME AS ESTAMPA_NOME FROM PRODUTO_CRIACAO JOIN MATERIA_PRIMA ON PRODUTO_CRIACAO.MATERIA_PRIMA_ID_MATERIA_PRIMA = MATERIA_PRIMA.ID_MATERIA_PRIMA JOIN ESTAMPA ON ESTAMPA.ID_ESTAMPA = MATERIA_PRIMA.ESTAMPA_ID_ESTAMPA JOIN MATERIA_PRIMA_TIPO ON MATERIA_PRIMA_TIPO.ID_MATERIA_PRIMA_TIPO = MATERIA_PRIMA.MATERIA_PRIMA_TIPO_ID_MATERIA_PRIMA_TIPO WHERE PRODUTO_CRIACAO.CODIGO = '$id'");
+            $sql = $con->prepare("SELECT PRODUTO_CRIACAO.QTD_USADA AS QUANTIDADE_USADA, MATERIA_PRIMA.NOME AS MATERIA_NOME, MATERIA_PRIMA_TIPO.NOME AS MATERIA_TIPO_NOME, ESTAMPA.NOME AS ESTAMPA_NOME FROM PRODUTO_CRIACAO JOIN MATERIA_PRIMA ON PRODUTO_CRIACAO.MATERIA_PRIMA_ID_MATERIA_PRIMA = MATERIA_PRIMA.ID_MATERIA_PRIMA JOIN ESTAMPA ON ESTAMPA.ID_ESTAMPA = MATERIA_PRIMA.ESTAMPA_ID_ESTAMPA JOIN MATERIA_PRIMA_TIPO ON MATERIA_PRIMA_TIPO.ID_MATERIA_PRIMA_TIPO = MATERIA_PRIMA.MATERIA_PRIMA_TIPO_ID_MATERIA_PRIMA_TIPO WHERE PRODUTO_CRIACAO.CODIGO = ?");
 
             $sql->bind_param('s', $id);
 
@@ -144,6 +146,19 @@ class produtoCriacaoDAO {
             echo $dados;
         } catch (Exception $e) {
             echo "ERRO: " . $e->getMessage();
+        }
+    }
+
+    function atualizarProdutoCriacao($produto) {
+        global $con;
+
+        $sql = $con->prepare("UPDATE PRODUTO_CRIACAO SET NOME = ?, LARGURA=?, ALTURA = ?, PROFUNDIDADE = ? WHERE CODIGO = ?");
+        $sql->bind_param('siiis', $produto->nome, $produto->largura, $produto->altura, $produto->profundidade, $produto->codigo);
+
+        if ($sql->execute()) {
+            echo '<script>alert("p a Editada com sucesso!");</script>';
+        } else {
+            echo '<script>alert("Erro ao Editar!");</script>';
         }
     }
 

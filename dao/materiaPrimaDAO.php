@@ -104,7 +104,7 @@ class materiaPrimaDAO {
 //refatorado
     function exibir_thumb() {
         global $con;
-        $dados ="";
+        $dados = "";
         try {
             $sql = ("SELECT ID_MATERIA_PRIMA, NOME, IMAGEM, QTD_TOTAL FROM MATERIA_PRIMA ORDER BY NOME ASC");
             $result = mysqli_query($con, $sql);
@@ -120,15 +120,15 @@ class materiaPrimaDAO {
     function atualizarMateria($materia) {
         global $con;
 
-        $sql = $con->prepare("UPDATE MATERIA_PRIMA SET NOME = ?, IMAGEM = ?,  QTD_TOTAL = ? MATERIA_PRIMA_TIPO_ID_MATERIA_PRIMA_TIPO = ?, ESTAMPA_ID_ESTAMPA = ? WHERE ID_MATERIA_PRIMA = ?");
+        $sql = $con->prepare("UPDATE MATERIA_PRIMA SET NOME = ?, IMAGEM=?, QTD_TOTAL = QTD_TOTAL + ?,MATERIA_PRIMA_TIPO_ID_MATERIA_PRIMA_TIPO = ?, ESTAMPA_ID_ESTAMPA = ? WHERE ID_MATERIA_PRIMA = ?");
         $sql->bind_param('ssiiii', $materia->nome, $materia->imagem, $materia->quantidade, $materia->tipo, $materia->estampa, $materia->id);
 
         if ($sql->execute()) {
             echo '<script>alert("Matéria-Prima Editada com sucesso!");</script>';
-            header("Refresh: 0; ../view/ver_materia_prima.php");
+            header("Refresh: 5; ../view/ver_materia_prima.php");
         } else {
             echo '<script>alert("Erro ao Editar!");</script>';
-            hheader("Refresh: 0; ../view/ver_materia_prima.php");
+            header("Refresh: 5; ../view/ver_materia_prima.php");
         }
     }
 

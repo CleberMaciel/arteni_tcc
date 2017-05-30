@@ -22,6 +22,15 @@ class produtoCriacao {
     private $qtd_usada;
     private $codigo;
 
+//    function __construct() {
+//        $args = func_get_args();
+//        $numberOfArgs = func_num_args();
+//
+//        if (method_exists($this, $funtion = '__construct' . $numberOfArgs)) {
+//            call_user_func_array(array($this, $funtion), $args);
+//        }
+//    }
+
     function __construct($id, $nome, $largura, $altura, $profundidade, $materiaPrima, $qtd_usada, $codigo) {
         $this->id = $id;
         $this->nome = $nome;

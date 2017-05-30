@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/arteni_tcc/action/salvarMateriaEditada.php</file>
             <file>file:/var/www/html/arteni_tcc/view/editarMateria.php</file>
-            <file>file:/var/www/html/arteni_tcc/dao/produtoVendaDAO.php</file>
-            <file>file:/var/www/html/arteni_tcc/action/editarMateriaPrima.php</file>
-            <file>file:/var/www/html/arteni_tcc/view/ver_materia_prima.php</file>
+            <file>file:/var/www/html/arteni_tcc/template/header.php</file>
+            <file>file:/var/www/html/arteni_tcc/dao/produtoCriacaoDAO.php</file>
+            <file>file:/var/www/html/arteni_tcc/view/editarProdutoCriacao.php</file>
+            <file>file:/var/www/html/arteni_tcc/template/footer.php</file>
             <file>file:/var/www/html/arteni_tcc/dao/materiaPrimaDAO.php</file>
+            <file>file:/var/www/html/arteni_tcc/view/cad_prod_criacao.php</file>
         </group>
     </open-files>
 </project-private>

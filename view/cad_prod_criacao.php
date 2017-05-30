@@ -76,9 +76,7 @@ $materiaPrima = new materiaPrimaDAO();
 echo $materiaPrima->montarCombo();
 ?>" +
                     '</select>' +
-                    ' <div class="form-group">' +
                     '<input type="number" name="quantidade[]" id="quantidade" placeholder="quantidade" class="form-control" pattern="^[0-9]{1,}$"/>' +
-                    '</div>' +
                     '<a class="btn btn-danger" href="javascript:void(0)" id="remSelect">' +
                     ' Remover campo' +
                     ' </a>  ' +
@@ -90,7 +88,6 @@ echo $materiaPrima->montarCombo();
             return false;
         });
     });
-
 </script>
 </body>
 </html>

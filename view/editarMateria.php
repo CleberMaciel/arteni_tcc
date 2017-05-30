@@ -15,10 +15,11 @@ $dados = $mDAO->buscarDados($id);
     <div class="col-sm-4">
 
         <form name="cadastroMateriaPrima" action="../action/salvarMateriaEditada.php"method="POST" enctype="multipart/form-data">
+            <input type="hidden" value="<?php echo $id ?>" name="idMateria" id="idMateria">
             <input type="text" name="nome" id="nome" placeholder="Nome da matéria-prima"  value="<?php echo $dados->NOME; ?>"required="TRUE" class="form-control"/><br/>
-            <input type="file" name="imagem" id="imagem" class="form-control form-control-file"/>
+            <input type="file" name="imagem" id="imagem" value="<?php echo $dados->IMAGEM ?>" class="form-control form-control-file" required="TRUE"/>
             <p class="help-block">Selecione uma imagem para a matéria-prima se houver.</p>
-            <input type="number" name="quantidade" id="quantidade" placeholder="Quantidade em estoque" value="<?php echo $dados->QTD_TOTAL; ?>"class="form-control" min="0" required="TRUE"/><br/>
+            <input type="number" name="quantidade" id="quantidade" placeholder="Quantidade adicional" value="<?php echo $dados->QTD_TOTAL; ?>"class="form-control" min="0" required="TRUE"/><br/>
             <select name = "materiaPrimaTipo" id = "materiaPrimaTipo" class = "form-control" required>
                 <option disabled selected = ""> Selecione o tipo da materia prima </option>
                 <?php
