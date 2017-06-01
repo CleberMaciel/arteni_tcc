@@ -18,8 +18,6 @@ class produtoCriacao {
     private $largura;
     private $altura;
     private $profundidade;
-    private $materiaPrima;
-    private $qtd_usada;
     private $codigo;
 
 //    function __construct() {
@@ -31,14 +29,12 @@ class produtoCriacao {
 //        }
 //    }
 
-    function __construct($id, $nome, $largura, $altura, $profundidade, $materiaPrima, $qtd_usada, $codigo) {
+    function __construct($id, $nome, $largura, $altura, $profundidade, $codigo) {
         $this->id = $id;
         $this->nome = $nome;
         $this->largura = $largura;
         $this->altura = $altura;
         $this->profundidade = $profundidade;
-        $this->materiaPrima = $materiaPrima;
-        $this->qtd_usada = $qtd_usada;
         $this->codigo = $codigo;
     }
 

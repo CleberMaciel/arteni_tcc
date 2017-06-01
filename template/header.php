@@ -22,7 +22,7 @@ define('BASE_URL', 'http://localhost/arteni_tcc');
     <link href="<?php echo BASE_URL; ?>/css/jasny-bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo BASE_URL; ?>/css/bootstrap-select.css" rel="stylesheet">
 </head>
-<body>
+
     <header>
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -80,3 +80,5 @@ define('BASE_URL', 'http://localhost/arteni_tcc');
             </div>
         </div>
     </div>
+<body>
+    <div class="bg">

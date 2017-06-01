@@ -5,7 +5,7 @@ include '../dao/produtoCriacaoDAO.php';
 
 
 
-    $codigo = $_GET['codigo'];
+    $codigo = $_GET['ID_PRODUTO_CRIACAO'];
     $acoes = new produtoCriacaoDAO();
 ?>
 <table class="table table-hover">

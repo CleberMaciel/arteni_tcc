@@ -41,16 +41,7 @@ if ($_SESSION["tipo_usuario"] == 1) {
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
-                <br>
-
-                <a class="btn btn-primary" href="javascript:void(0)" id="addSelect">
-                    Adicionar Matéria-Prima
-                </a>
-                <br>
-                <div id="campoDinamico">
-
-                </div><br>
-                <input type="submit" name="acao" value="Salvar" class="btn btn-success"/>
+                <input type="submit" name="acao" value="Proxima Etapa" class="btn btn-success"/>
             </form>
         </div>
     </div>
@@ -60,34 +51,6 @@ if ($_SESSION["tipo_usuario"] == 1) {
 }
 ?>
 <?php include "../template/footer.php"; ?>
-<script>
-    $(function () {
-        var scntDiv = $('#campoDinamico');
-        $(document).on('click', '#addSelect', function () {
-            $('<p>' +
-                    '<select name="materiaPrima[]" id="materiaPrima" class="form-control" required>' +
-                    '<option  disabled selected="">' +
-                    'Escolha o tipo da materia prima' +
-                    '</option>' +
-                    "<?php
-include "../includes/conexao.inc.php";
-include "../dao/materiaPrimaDAO.php";
-$materiaPrima = new materiaPrimaDAO();
-echo $materiaPrima->montarCombo();
-?>" +
-                    '</select>' +
-                    '<input type="number" name="quantidade[]" id="quantidade" placeholder="quantidade" class="form-control" pattern="^[0-9]{1,}$"/>' +
-                    '<a class="btn btn-danger" href="javascript:void(0)" id="remSelect">' +
-                    ' Remover campo' +
-                    ' </a>  ' +
-                    '</p>').appendTo(scntDiv);
-            return false;
-        });
-        $(document).on('click', '#remSelect', function () {
-            $(this).parents('p').remove();
-            return false;
-        });
-    });
-</script>
+
 </body>
 </html>

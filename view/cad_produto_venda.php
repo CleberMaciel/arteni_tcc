@@ -5,15 +5,15 @@ include "../includes/conexao.inc.php";
 include "../dao/produtoCriacaoDAO.php";
 
 $pcDAO = new produtoCriacaoDAO();
-$id = $_GET['codigo'];
+
 $id_p = $_GET['ID_PRODUTO_CRIACAO'];
-$dados = $pcDAO->buscarDados($id);
+$dados = $pcDAO->buscarDadosId($id_p);
 ?>
 
 <div class = "container">
     <div class = "col-sm-4">
         <label for="inputEmail" class="control-label">Nome do produto</label>
-        <input type = "text" name = "largura" id = "nome" placeholder = "Nome da matéria-prima" value = "<?php echo $dados->PROD_NOME; ?>"required = "TRUE" class = "form-control" disabled/><br/>
+        <input type = "text" name = "largura" id = "nome" placeholder = "Nome da matéria-prima" value = "<?php echo $dados->NOME; ?>"required = "TRUE" class = "form-control" disabled/><br/>
         <label for="inputEmail" class="control-label">Largura</label>
         <input type = "text" name = "largura" id = "nome" placeholder = "Nome da matéria-prima" value = "<?php echo $dados->LARGURA; ?> cm"required = "TRUE" class = "form-control" disabled/><br/>
         <label for="inputEmail" class="control-label">Altura</label>
@@ -23,7 +23,7 @@ $dados = $pcDAO->buscarDados($id);
     </div>
     <div class = "col-sm-8">
         <table class="table table-hover">
-            <?php echo $pcDAO->montarTabelaVenda($id); ?>
+            <?php echo $pcDAO->montarTabelaVenda($id_p); ?>
         </table>
         <form name = "cadastroProdutoVenda" action = "../action/salvarProdutoVenda.php" method = "POST" enctype = "multipart/form-data">
             <div class = "col-sm-4">

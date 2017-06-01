@@ -7,18 +7,21 @@ if (isset($_POST["acao"])) {
     include '../dao/produtoCriacaoDAO.php';
 
 
-    $codigo = $_POST["id_prod"];
+    $id = $_POST['id_prod'];
     $nome = $_POST["nome"];
     $largura = $_POST["largura"];
     $altura = $_POST["altura"];
     $profundidade = $_POST["profundidade"];
 
-    echo $codigo;
+
 
 
     $acoes = new produtoCriacaoDAO();
-    $prod = new produtoCriacao("", $nome, $largura, $altura, $profundidade, "", "", $codigo);
+    $prod = new produtoCriacao($id, $nome, $largura, $altura, $profundidade, "", "", "");
+
     $acoes->atualizarProdutoCriacao($prod);
+    var_dump($prod);
+    include "../template/footer.php";
 }
 
-include "../template/footer.php";
+

@@ -5,10 +5,10 @@ include "../includes/conexao.inc.php";
 include "../dao/produtoCriacaoDAO.php";
 include "../class/produtoCriacao.class.php";
 
-$id = $_GET['codigo'];
+$id = $_GET['ID_PRODUTO_CRIACAO'];
 
 $pDAO = new produtoCriacaoDAO();
-$dados = $pDAO->buscarDados($id);
+$dados = $pDAO->buscarDadosId($id);
 ?>
 
 <div class="container">
@@ -28,7 +28,7 @@ $dados = $pDAO->buscarDados($id);
                     </div>
                     <div class="form-group">
                         <label class="control-label">Nome do produto</label>
-                        <input type="text" name="nome" id="nome"value="<?php echo $dados->PROD_NOME ?>" placeholder="Nome do Produto" required="TRUE" class="form-control"data-minlength="4" pattern="^[A-z0-9]{4,}$" data-match-errors="texto curto"/><br/>
+                        <input type="text" name="nome" id="nome"value="<?php echo $dados->NOME ?>" placeholder="Nome do Produto" required="TRUE" class="form-control"data-minlength="4" pattern="^[A-z0-9]{4,}$" data-match-errors="texto curto"/><br/>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -50,9 +50,8 @@ $dados = $pDAO->buscarDados($id);
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
-                    <br>
-                    <br>
-                    <input type="submit" name="acao" value="Salvar" class="btn btn-success"/>
+
+                    <input type="submit" name="acao" value="Salvar Alteração" class="btn btn-success"/>
                 </div>
                 <div class = "col-sm-8">
                     <table class="table table-hover">

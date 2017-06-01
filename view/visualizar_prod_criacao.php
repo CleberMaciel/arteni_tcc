@@ -7,7 +7,7 @@ if ($_SESSION["tipo_usuario"] == 1) {
     include '../dao/produtoCriacaoDAO.php';
     $acoes = new produtoCriacaoDAO();
     ?>
-    <div class="container">'
+    <div class="container">
         <table class="table table-hover">
             <?php echo $acoes->mostrar(); ?>
         </table>
