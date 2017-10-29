@@ -1,3 +1,4 @@
+## Em refatoração.
 ## Projeto para o Trabalho de conclusão de curso.
 O trabalho de conclusão de curso consiste na criação de um controle de estoque de materiais (que ajudará o cliente a evitar o disperdicio ou corte desnecesssario da matéria-prima) vinculado ao um e-commerce. O projeto é feito na linguagem PHP com MySQL (MySQLi) com auxilio em JavaScript.
 
